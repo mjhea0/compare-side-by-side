@@ -1,0 +1,113 @@
+<html>
+<head>
+	<title>Side-by-Side</title>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<style>
+		.container * {
+			transition: all 2s;
+			-moz-transition: all 2s;
+			-webkit-transition: all 2s;
+			-o-transition: all 2s;
+		}
+		.container {
+			margin: auto;
+			padding: 0px 10px;
+			box-sizing: border-box;
+			resize: horizontal;
+		}
+		.navbar {
+			border-radius: 0px;
+		}
+		.navbar-inverse .navbar-brand {
+			color: white;
+		}
+		.form-control {
+			width: 200px;
+		}
+		.left {
+			padding-top: 60px;
+			position: absolute;
+			overflow: hidden;
+			text-align: left;
+			left: 1%;
+			top: 0;
+			width: 49%;
+			height: 100%;
+		}
+		.left iframe {
+			padding-top: 60px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			max-width: none;
+			width: 100%;
+			height: 100%;
+			border: 0 none;
+		}
+		.right {
+			padding-top: 60px;
+			position: absolute;
+			overflow: hidden;
+			text-align: right;
+			right: 1%;
+			top: 0;
+			width: 49%;
+			height: 100%;
+		}
+		.right iframe {
+			padding-top: 60px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			max-width: none;
+			width: 100%;
+			height: 100%;
+			border: 0 none;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="sidebyside">
+				<div class="left"><iframe src="" id="img1"></iframe></div>
+				<div class="right"><iframe src="" id="img2"></iframe></div>
+			</div>
+		</div>
+		<nav class="navbar navbar-inverse" role="navigation">
+	  <div class="navbar-header">
+					<form class="navbar-form navbar-left" role="search">
+	      		<div class="form-group">
+	      			<input type="text" placeholder="Ready?" class="form-control" id="url1">
+	      		</div>
+	      		<div class="form-group">
+	      			<input type="text" placeholder="Aim." class="form-control" id="url2">
+	      		</div>
+	      		<button type="button" class="btn btn-primary load">Fire!</button>
+	    		</form>
+	  </div>
+	</nav>
+	<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+
+	    <a class="navbar-brand">Side-by-Side</a>
+	  </div>
+	<script>
+		$(document).ready(function(){
+			$('.load').click(function(){
+				var lefturl = $('#url1').val();
+				var righturl = $('#url2').val();
+				leftiframe = $('.left iframe').attr('src', lefturl);
+				rightiframe = $('.right iframe').attr('src', righturl);
+			});
+		});
+	</script>
+</body>
+</html>
